@@ -1,0 +1,28 @@
+# BasicStoicQuoteFlow
+
+main: kit: flow: BasicStoicQuoteFlow:
+{
+  entity: "stoic_quote",
+  kind: "basic",
+  name: "BasicStoicQuoteFlow",
+  step: [
+    {
+      input: {
+        ref: "stoic_quote_ref01",
+        srcdatavar: "stoic_quote_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-stoic_quote_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicStoicQuoteFlow"
+}

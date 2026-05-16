@@ -1,0 +1,37 @@
+# Entity: stoic_quote
+
+main: kit: entity: stoic_quote: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "data"
+      req: true
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "stoic_quote"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/stoic-quote"
+          parts: [
+            "stoic-quote"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "API Support"
+        url: "https://github.com/tlcheah2/stoic-quote-lambda-public-api"
+      }
+      description: "This API generates stoicism quotes to help you live a better life using Stoicism wisdom."
+      license: {
+        name: "MIT"
+        url: "https://opensource.org/licenses/MIT"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://stoic.tekloon.net"
+        }
+      ]
+      title: "Stoicism Quote API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

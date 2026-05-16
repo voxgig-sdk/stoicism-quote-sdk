@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "stoic_quote": {
+      "STOIC_QUOTE00": {
+        "data": {}
+      },
+      "STOIC_QUOTE01": {
+        "data": {}
+      },
+      "STOIC_QUOTE02": {
+        "data": {}
+      }
+    }
+  },
+  "new": {
+    "stoic_quote": {
+      "stoic_quote_ref01": {
+        "data": {}
+      }
+    }
+  }
+}

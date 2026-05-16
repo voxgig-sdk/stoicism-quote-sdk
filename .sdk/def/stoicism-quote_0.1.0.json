@@ -1,0 +1,118 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Stoicism Quote API",
+    "description": "This API generates stoicism quotes to help you live a better life using Stoicism wisdom.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support",
+      "url": "https://github.com/tlcheah2/stoic-quote-lambda-public-api"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://stoic.tekloon.net",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/stoic-quote": {
+      "get": {
+        "summary": "Get a random stoicism quote",
+        "description": "Returns a random stoicism quote with the author's name to help you live a better life using Stoicism wisdom. The request takes no parameters, headers or query strings.",
+        "operationId": "getStoicQuote",
+        "tags": [
+          "Quotes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved a stoicism quote",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteResponse"
+                },
+                "example": {
+                  "data": {
+                    "author": "Ryan Holiday",
+                    "quote": "True will is quiet humility, resilience, and flexibility; the other kind of will is weakness disguised by bluster and ambition."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "QuoteResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "author": {
+                "type": "string",
+                "description": "The author of the stoicism quote",
+                "example": "Ryan Holiday"
+              },
+              "quote": {
+                "type": "string",
+                "description": "The stoicism quote text",
+                "example": "True will is quiet humility, resilience, and flexibility; the other kind of will is weakness disguised by bluster and ambition."
+              }
+            },
+            "required": [
+              "author",
+              "quote"
+            ]
+          }
+        },
+        "required": [
+          "data"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message",
+            "example": "Internal server error"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error description",
+            "example": "An unexpected error occurred while processing your request"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Quotes",
+      "description": "Operations related to retrieving stoicism quotes"
+    }
+  ],
+  "externalDocs": {
+    "description": "Find more information and source code on GitHub",
+    "url": "https://github.com/tlcheah2/stoic-quote-lambda-public-api"
+  }
+}
