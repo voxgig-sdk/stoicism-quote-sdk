@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/stoicism-quote-sdk"
+	sdk "github.com/voxgig-sdk/stoicism-quote-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

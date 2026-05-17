@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/stoicism-quote-sdk/core"
+	"github.com/voxgig-sdk/stoicism-quote-sdk/go/core"
 )
 
 type LogFeature struct {

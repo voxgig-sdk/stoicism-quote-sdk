@@ -2,13 +2,16 @@
   "existing": {
     "stoic_quote": {
       "STOIC_QUOTE00": {
-        "data": {}
+        "data": {},
+        "id": "STOIC_QUOTE00"
       },
       "STOIC_QUOTE01": {
-        "data": {}
+        "data": {},
+        "id": "STOIC_QUOTE01"
       },
       "STOIC_QUOTE02": {
-        "data": {}
+        "data": {},
+        "id": "STOIC_QUOTE02"
       }
     }
   },

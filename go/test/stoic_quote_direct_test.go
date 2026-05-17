@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/stoicism-quote-sdk"
-	"github.com/voxgig-sdk/stoicism-quote-sdk/core"
+	sdk "github.com/voxgig-sdk/stoicism-quote-sdk/go"
+	"github.com/voxgig-sdk/stoicism-quote-sdk/go/core"
 )
 
 func TestStoicQuoteDirect(t *testing.T) {

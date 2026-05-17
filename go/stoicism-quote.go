@@ -1,10 +1,10 @@
 package voxgigstoicismquotesdk
 
 import (
-	"github.com/voxgig-sdk/stoicism-quote-sdk/core"
-	"github.com/voxgig-sdk/stoicism-quote-sdk/entity"
-	"github.com/voxgig-sdk/stoicism-quote-sdk/feature"
-	_ "github.com/voxgig-sdk/stoicism-quote-sdk/utility"
+	"github.com/voxgig-sdk/stoicism-quote-sdk/go/core"
+	"github.com/voxgig-sdk/stoicism-quote-sdk/go/entity"
+	"github.com/voxgig-sdk/stoicism-quote-sdk/go/feature"
+	_ "github.com/voxgig-sdk/stoicism-quote-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

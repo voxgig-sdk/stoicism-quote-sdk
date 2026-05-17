@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/stoicism-quote-sdk/core"
+	"github.com/voxgig-sdk/stoicism-quote-sdk/go/core"
 )
 
 type BaseFeature struct {

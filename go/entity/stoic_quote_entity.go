@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/stoicism-quote-sdk/core"
+	"github.com/voxgig-sdk/stoicism-quote-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/stoicism-quote-sdk/go/utility/struct"
 )
 
 type StoicQuoteEntity struct {
