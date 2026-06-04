@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://stoic.tekloon.net',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

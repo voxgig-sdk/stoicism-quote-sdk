@@ -21,7 +21,17 @@
           }
         ],
         "title": "Stoicism Quote API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Fetch a random Stoic quote with its author for daily inspiration or app content",
+        "homepage": "https://stoic.tekloon.net",
+        "docs_url": "https://freepublicapis.com/stoicism-quote-api",
+        "license_short": "MIT",
+        "license_md": "- Distributed under the MIT licence as listed on the catalogue entry.\n- No API key or registration is required to call the endpoint.\n- Attribution to the original Stoic author is included in each response; please preserve it when displaying quotes.",
+        "about_md": "The Stoicism Quote API is a small public service hosted at `stoic.tekloon.net` that returns a single random quote drawn from Stoic philosophers such as Marcus Aurelius, Epictetus and Seneca. It is catalogued on [Free Public APIs](https://freepublicapis.com/stoicism-quote-api).\n\nWhat you get from the API:\n\n- `GET /stoic-quote` — a JSON envelope of the form `{\"data\": {\"author\": \"...\", \"quote\": \"...\"}}`.\n- A short attributed quote suitable for embedding in dashboards, chat bots, daily-message emails and similar applications.\n\nOperationally the service is unauthenticated and exposes a single endpoint. CORS is reported as disabled on the catalogue page, so browser-side calls may need to go through a proxy; server-side calls work directly.",
+        "entity_desc": {
+          "stoic_quote": "A single Stoic quote with its author, returned by `GET /stoic-quote` as `{ data: { author, quote } }`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -29,7 +39,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "stoic_quote": {

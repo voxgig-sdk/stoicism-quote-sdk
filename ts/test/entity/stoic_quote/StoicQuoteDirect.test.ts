@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID': {},
     'STOICISMQUOTE_TEST_LIVE': 'FALSE',
-    'STOICISMQUOTE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.STOICISMQUOTE_TEST_LIVE
 
   if (live) {
     const client = new StoicismQuoteSDK({
-      apikey: env.STOICISMQUOTE_APIKEY,
     })
 
     let idmap: any = env['STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID']

@@ -91,7 +91,6 @@ def _stoic_quote_basic_setup(extra):
         "STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID": idmap,
         "STOICISMQUOTE_TEST_LIVE": "FALSE",
         "STOICISMQUOTE_TEST_EXPLAIN": "FALSE",
-        "STOICISMQUOTE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +101,6 @@ def _stoic_quote_basic_setup(extra):
     if env.get("STOICISMQUOTE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("STOICISMQUOTE_APIKEY"),
             },
             extra or {},
         ])
