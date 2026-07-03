@@ -10,7 +10,7 @@ The PHP SDK for the StoicismQuote API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/stoicism-quote-sdk
+composer require voxgig-sdk/stoicism-quote
 ```
 
 

@@ -10,7 +10,7 @@ The TypeScript SDK for the StoicismQuote API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install stoicism-quote
+npm install @voxgig-sdk/stoicism-quote
 ```
 ## Tutorial: your first API call
 

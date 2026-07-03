@@ -10,13 +10,13 @@ The Ruby SDK for the StoicismQuote API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install stoicism-quote-sdk
+gem install voxgig-sdk-stoicism-quote
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "stoicism-quote-sdk"
+gem "voxgig-sdk-stoicism-quote"
 ```
 
 Then run:

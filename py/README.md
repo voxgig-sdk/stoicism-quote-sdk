@@ -10,7 +10,7 @@ The Python SDK for the StoicismQuote API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install stoicism-quote-sdk
+pip install voxgig-sdk-stoicism-quote
 ```
 
 Or install from source:

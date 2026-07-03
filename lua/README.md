@@ -10,7 +10,7 @@ The Lua SDK for the StoicismQuote API — an entity-oriented client using Lua co
 
 ## Install
 ```bash
-luarocks install stoicism-quote-sdk
+luarocks install voxgig-sdk-stoicism-quote
 ```
 
 If the module is not yet published, add the source directory to
