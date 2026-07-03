@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://stoic.tekloon.net",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,35 +29,35 @@ def make_config():
       "stoic_quote": {
         "fields": [
           {
+            "active": True,
             "name": "data",
             "req": True,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 0,
           },
         ],
         "name": "stoic_quote",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/stoic-quote",
                 "parts": [
                   "stoic-quote",
                 ],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

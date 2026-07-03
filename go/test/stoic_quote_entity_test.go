@@ -117,6 +117,7 @@ func stoic_quoteBasicSetup(extra map[string]any) *entityTestSetup {
 		"STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID": idmap,
 		"STOICISMQUOTE_TEST_LIVE":      "FALSE",
 		"STOICISMQUOTE_TEST_EXPLAIN":   "FALSE",
+		"STOICISMQUOTE_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID"])
@@ -127,6 +128,7 @@ func stoic_quoteBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["STOICISMQUOTE_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["STOICISMQUOTE_APIKEY"],
 			},
 			extra,
 		})

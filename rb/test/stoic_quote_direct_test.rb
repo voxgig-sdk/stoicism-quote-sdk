@@ -61,12 +61,14 @@ def stoic_quote_direct_setup(mockres)
   env = Runner.env_override({
     "STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID" => {},
     "STOICISMQUOTE_TEST_LIVE" => "FALSE",
+    "STOICISMQUOTE_APIKEY" => "NONE",
   })
 
   live = env["STOICISMQUOTE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["STOICISMQUOTE_APIKEY"],
     }
     client = StoicismQuoteSDK.new(merged_opts)
     return {

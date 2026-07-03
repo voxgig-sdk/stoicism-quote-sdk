@@ -1,19 +1,8 @@
 # StoicismQuote SDK
 
-Fetch a random Stoic quote with its author for daily inspiration or app content
+Stoicism Quote API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Stoicism Quote API
-
-The Stoicism Quote API is a small public service hosted at `stoic.tekloon.net` that returns a single random quote drawn from Stoic philosophers such as Marcus Aurelius, Epictetus and Seneca. It is catalogued on [Free Public APIs](https://freepublicapis.com/stoicism-quote-api).
-
-What you get from the API:
-
-- `GET /stoic-quote` — a JSON envelope of the form `{"data": {"author": "...", "quote": "..."}}`.
-- A short attributed quote suitable for embedding in dashboards, chat bots, daily-message emails and similar applications.
-
-Operationally the service is unauthenticated and exposes a single endpoint. CORS is reported as disabled on the catalogue page, so browser-side calls may need to go through a proxy; server-side calls work directly.
 
 ## Try it
 
@@ -47,27 +36,31 @@ gem install stoicism-quote-sdk
 luarocks install stoicism-quote-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { StoicismQuoteSDK } from 'stoicism-quote'
 
-const client = new StoicismQuoteSDK({})
+const client = new StoicismQuoteSDK({
+  apikey: process.env.STOICISM-QUOTE_APIKEY,
+})
 
+// Load stoicquote data
+const stoicquote = await client.StoicQuote().load({})
+console.log(stoicquote.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -97,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **StoicQuote** | A single Stoic quote with its author, returned by `GET /stoic-quote` as `{ data: { author, quote } }`. | `/stoic-quote` |
+| **StoicQuote** |  | `/stoic-quote` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -107,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from stoicismquote_sdk import StoicismQuoteSDK
 
-client = StoicismQuoteSDK({})
+client = StoicismQuoteSDK({
+    "apikey": os.environ.get("STOICISM-QUOTE_APIKEY"),
+})
 
 
 # Load a specific stoicquote
-stoicquote, err = client.StoicQuote(None).load(
-    {"id": "example_id"}, None
-)
+stoicquote, err = client.StoicQuote().load({"id": "example_id"})
+print(stoicquote)
 ```
 
 ### PHP
@@ -124,13 +119,14 @@ stoicquote, err = client.StoicQuote(None).load(
 <?php
 require_once 'stoicismquote_sdk.php';
 
-$client = new StoicismQuoteSDK([]);
+$client = new StoicismQuoteSDK([
+    "apikey" => getenv("STOICISM-QUOTE_APIKEY"),
+]);
 
 
 // Load a specific stoicquote
-[$stoicquote, $err] = $client->StoicQuote(null)->load(
-    ["id" => "example_id"], null
-);
+[$stoicquote, $err] = $client->StoicQuote()->load(["id" => "example_id"]);
+print_r($stoicquote);
 ```
 
 ### Golang
@@ -138,8 +134,13 @@ $client = new StoicismQuoteSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/stoicism-quote-sdk/go"
 
-client := sdk.NewStoicismQuoteSDK(map[string]any{})
+client := sdk.NewStoicismQuoteSDK(map[string]any{
+    "apikey": os.Getenv("STOICISM-QUOTE_APIKEY"),
+})
 
+// Load stoicquote data
+stoicquote, err := client.StoicQuote(nil).Load(map[string]any{}, nil)
+fmt.Println(stoicquote)
 ```
 
 ### Ruby
@@ -147,13 +148,14 @@ client := sdk.NewStoicismQuoteSDK(map[string]any{})
 ```ruby
 require_relative "StoicismQuote_sdk"
 
-client = StoicismQuoteSDK.new({})
+client = StoicismQuoteSDK.new({
+  "apikey" => ENV["STOICISM-QUOTE_APIKEY"],
+})
 
 
 # Load a specific stoicquote
-stoicquote, err = client.StoicQuote(nil).load(
-  { "id" => "example_id" }, nil
-)
+stoicquote, err = client.StoicQuote().load({ "id" => "example_id" })
+puts stoicquote
 ```
 
 ### Lua
@@ -161,13 +163,14 @@ stoicquote, err = client.StoicQuote(nil).load(
 ```lua
 local sdk = require("stoicism-quote_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("STOICISM-QUOTE_APIKEY"),
+})
 
 
 -- Load a specific stoicquote
-local stoicquote, err = client:StoicQuote(nil):load(
-  { id = "example_id" }, nil
-)
+local stoicquote, err = client:StoicQuote():load({ id = "example_id" })
+print(stoicquote)
 ```
 
 ## Unit testing in offline mode
@@ -186,25 +189,21 @@ const result = await client.StoicQuote().load({ id: 'test01' })
 ### Python
 
 ```python
-client = StoicismQuoteSDK.test(None, None)
-result, err = client.StoicQuote(None).load(
-    {"id": "test01"}, None
-)
+client = StoicismQuoteSDK.test()
+result, err = client.StoicQuote().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = StoicismQuoteSDK::test(null, null);
-[$result, $err] = $client->StoicQuote(null)->load(
-    ["id" => "test01"], null
-);
+$client = StoicismQuoteSDK::test();
+[$result, $err] = $client->StoicQuote()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.StoicQuote(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -213,19 +212,15 @@ result, err := client.StoicQuote(nil).Load(
 ### Ruby
 
 ```ruby
-client = StoicismQuoteSDK.test(nil, nil)
-result, err = client.StoicQuote(nil).load(
-  { "id" => "test01" }, nil
-)
+client = StoicismQuoteSDK.test
+result, err = client.StoicQuote().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:StoicQuote(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:StoicQuote():load({ id = "test01" })
 ```
 
 ## How it works
@@ -329,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Stoicism Quote API
-
-- Upstream: [https://stoic.tekloon.net](https://stoic.tekloon.net)
-- API docs: [https://freepublicapis.com/stoicism-quote-api](https://freepublicapis.com/stoicism-quote-api)
-
-- Distributed under the MIT licence as listed on the catalogue entry.
-- No API key or registration is required to call the endpoint.
-- Attribution to the original Stoic author is included in each response; please preserve it when displaying quotes.
 
 ---
 

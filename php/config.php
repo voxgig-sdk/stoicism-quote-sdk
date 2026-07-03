@@ -20,6 +20,9 @@ class StoicismQuoteConfig
             ],
             "options" => [
                 "base" => "https://stoic.tekloon.net",
+                "auth" => [
+                    "prefix" => "Bearer",
+                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -31,35 +34,35 @@ class StoicismQuoteConfig
         'stoic_quote' => [
           'fields' => [
             [
+              'active' => true,
               'name' => 'data',
               'req' => true,
               'type' => '`$OBJECT`',
-              'active' => true,
               'index$' => 0,
             ],
           ],
           'name' => 'stoic_quote',
           'op' => [
             'load' => [
+              'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
+                  'active' => true,
+                  'args' => [],
                   'method' => 'GET',
                   'orig' => '/stoic-quote',
                   'parts' => [
                     'stoic-quote',
                   ],
+                  'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'active' => true,
-                  'args' => [],
-                  'select' => [],
                   'index$' => 0,
                 ],
               ],
-              'input' => 'data',
               'key$' => 'load',
             ],
           ],

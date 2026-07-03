@@ -85,6 +85,7 @@ function stoic_quote_basic_setup($extra)
         "STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID" => $idmap,
         "STOICISMQUOTE_TEST_LIVE" => "FALSE",
         "STOICISMQUOTE_TEST_EXPLAIN" => "FALSE",
+        "STOICISMQUOTE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -96,6 +97,7 @@ function stoic_quote_basic_setup($extra)
     if ($env["STOICISMQUOTE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["STOICISMQUOTE_APIKEY"],
             ],
             $extra ?? [],
         ]);

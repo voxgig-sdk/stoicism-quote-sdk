@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'STOICISM_QUOTE_TEST_STOIC_QUOTE_ENTID': idmap,
     'STOICISM_QUOTE_TEST_LIVE': 'FALSE',
     'STOICISM_QUOTE_TEST_EXPLAIN': 'FALSE',
+    'STOICISM_QUOTE_APIKEY': 'NONE',
   })
 
   idmap = env['STOICISM_QUOTE_TEST_STOIC_QUOTE_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new StoicismQuoteSDK(merge([
       {
+        apikey: env.STOICISM_QUOTE_APIKEY,
       },
       extra
     ]))

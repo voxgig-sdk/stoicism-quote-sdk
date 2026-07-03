@@ -99,12 +99,14 @@ func stoic_quoteDirectSetup(mockres any) *stoic_quoteDirectSetupResult {
 	env := envOverride(map[string]any{
 		"STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID": map[string]any{},
 		"STOICISMQUOTE_TEST_LIVE":    "FALSE",
+		"STOICISMQUOTE_APIKEY":       "NONE",
 	})
 
 	live := env["STOICISMQUOTE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["STOICISMQUOTE_APIKEY"],
 		}
 		client := sdk.NewStoicismQuoteSDK(mergedOpts)
 
