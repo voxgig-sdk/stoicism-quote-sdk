@@ -26,9 +26,9 @@ import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote'
 
 const client = new StoicismQuoteSDK()
 
-// Load stoicquote data
-const stoicquote = await client.stoicquote.load({})
-console.log(stoicquote.data)
+// Load stoicquote data (returns a StoicQuote)
+const stoicquote = await client.StoicQuote().load()
+console.log(stoicquote)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from stoicismquote_sdk import StoicismQuoteSDK
 client = StoicismQuoteSDK()
 
 
-# Load a specific stoicquote
-stoicquote = client.stoicquote.load({"id": "example_id"})
+# Load a specific stoicquote (returns the record, raises on error)
+stoicquote = client.StoicQuote().load({"id": "example_id"})
 print(stoicquote)
 ```
 
@@ -98,8 +98,8 @@ require_once 'stoicismquote_sdk.php';
 $client = new StoicismQuoteSDK();
 
 
-// Load a specific stoicquote
-$stoicquote = $client->stoicquote()->load(["id" => "example_id"]);
+// Load a specific stoicquote (returns the bare record; throws on error)
+$stoicquote = $client->StoicQuote()->load(["id" => "example_id"]);
 print_r($stoicquote);
 ```
 
@@ -123,8 +123,8 @@ require_relative "StoicismQuote_sdk"
 client = StoicismQuoteSDK.new
 
 
-# Load a specific stoicquote
-stoicquote = client.stoicquote.load({ "id" => "example_id" })
+# Load a specific stoicquote (returns the bare record; raises on error)
+stoicquote = client.StoicQuote.load({ "id" => "example_id" })
 puts stoicquote
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific stoicquote
-local stoicquote, err = client:stoicquote():load({ id = "example_id" })
+local stoicquote, err = client:StoicQuote():load({ id = "example_id" })
 print(stoicquote)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = StoicismQuoteSDK.test()
-const result = await client.stoicquote.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const stoicquote = await client.StoicQuote().load({ id: 'test01' })
+// stoicquote is a bare StoicQuote populated with mock data
+console.log(stoicquote)
 ```
 
 ### Python
 
 ```python
 client = StoicismQuoteSDK.test()
-result = client.stoicquote.load({"id": "test01"})
+stoicquote = client.StoicQuote().load({"id": "test01"})
+print(stoicquote)
 ```
 
 ### PHP
 
 ```php
-$client = StoicismQuoteSDK::test();
-$result = $client->stoicquote()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = StoicismQuoteSDK::test([
+    "entity" => ["stoicquote" => ["test01" => ["id" => "test01"]]],
+]);
+$stoicquote = $client->StoicQuote()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.StoicQuote(nil).Load(
 ### Ruby
 
 ```ruby
-client = StoicismQuoteSDK.test
-result = client.stoicquote.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = StoicismQuoteSDK.test({
+  "entity" => { "stoicquote" => { "test01" => { "id" => "test01" } } },
+})
+stoicquote = client.StoicQuote.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:stoicquote():load({ id = "test01" })
+local result, err = client:StoicQuote():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

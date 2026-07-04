@@ -34,9 +34,9 @@ local client = sdk.new()
 ### 3. Load a stoicquote
 
 ```lua
-local result, err = client:stoicquote():load({ id = "example_id" })
+local stoicquote, err = client:StoicQuote():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(stoicquote)
 ```
 
 
@@ -82,8 +82,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:stoicquote():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:StoicQuote():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -183,17 +183,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local stoic_quote, err = client:StoicQuote():load({ id = "example_id" })
+    if err then error(err) end
+    -- stoic_quote is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -214,7 +219,7 @@ API path: `/stoic-quote`
 
 ### StoicQuote
 
-Create an instance: `const stoic_quote = client.stoic_quote`
+Create an instance: `local stoic_quote = client:StoicQuote(nil)`
 
 #### Operations
 
@@ -230,8 +235,8 @@ Create an instance: `const stoic_quote = client.stoic_quote`
 
 #### Example: Load
 
-```ts
-const stoic_quote = await client.stoic_quote.load({ id: 'stoic_quote_id' })
+```lua
+local stoic_quote, err = client:StoicQuote():load({ id = "stoic_quote_id" })
 ```
 
 
@@ -306,7 +311,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local stoicquote = client:stoicquote()
+local stoicquote = client:StoicQuote()
 stoicquote:load({ id = "example_id" })
 
 -- stoicquote:data_get() now returns the loaded stoicquote data

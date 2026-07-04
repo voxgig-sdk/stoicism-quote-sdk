@@ -33,10 +33,12 @@ client = StoicismQuoteSDK()
 
 ### 3. Load a stoicquote
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.stoicquote.load({"id": "example_id"})
-    print(result)
+    stoicquote = client.StoicQuote().load({"id": "example_id"})
+    print(stoicquote)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = StoicismQuoteSDK.test()
 
-result = client.stoicquote.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+stoicquote = client.StoicQuote().load({"id": "test01"})
+# stoicquote contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -218,7 +221,7 @@ API path: `/stoic-quote`
 
 ### StoicQuote
 
-Create an instance: `const stoic_quote = client.stoic_quote`
+Create an instance: `stoic_quote = client.StoicQuote()`
 
 #### Operations
 
@@ -234,8 +237,8 @@ Create an instance: `const stoic_quote = client.stoic_quote`
 
 #### Example: Load
 
-```ts
-const stoic_quote = await client.stoic_quote.load({ id: 'stoic_quote_id' })
+```python
+stoic_quote = client.StoicQuote().load({"id": "stoic_quote_id"})
 ```
 
 
@@ -309,7 +312,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-stoicquote = client.stoicquote
+stoicquote = client.StoicQuote()
 stoicquote.load({"id": "example_id"})
 
 # stoicquote.data_get() now returns the loaded stoicquote data

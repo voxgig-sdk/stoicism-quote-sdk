@@ -32,8 +32,9 @@ client = StoicismQuoteSDK.new
 
 ```ruby
 begin
-  result = client.stoicquote.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare StoicQuote record (raises on error).
+  stoicquote = client.StoicQuote.load({ "id" => "example_id" })
+  puts stoicquote
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = StoicismQuoteSDK.test
+client = StoicismQuoteSDK.test({
+  "entity" => { "stoicquote" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.stoicquote.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+stoicquote = client.StoicQuote.load({ "id" => "test01" })
+puts stoicquote
 ```
 
 ### Use a custom fetch function
@@ -218,7 +223,7 @@ API path: `/stoic-quote`
 
 ### StoicQuote
 
-Create an instance: `const stoic_quote = client.stoic_quote`
+Create an instance: `stoic_quote = client.StoicQuote`
 
 #### Operations
 
@@ -234,8 +239,9 @@ Create an instance: `const stoic_quote = client.stoic_quote`
 
 #### Example: Load
 
-```ts
-const stoic_quote = await client.stoic_quote.load({ id: 'stoic_quote_id' })
+```ruby
+# load returns the bare StoicQuote record (raises on error).
+stoic_quote = client.StoicQuote.load({ "id" => "stoic_quote_id" })
 ```
 
 
@@ -310,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-stoicquote = client.stoicquote
+stoicquote = client.StoicQuote
 stoicquote.load({ "id" => "example_id" })
 
 # stoicquote.data_get now returns the loaded stoicquote data

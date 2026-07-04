@@ -220,25 +220,15 @@ class StoicismQuoteSDK:
         }
 
 
-    @property
-    def stoic_quote(self):
-        """Idiomatic facade: client.stoic_quote.list() / client.stoic_quote.load({"id": ...})."""
-        from entity.stoic_quote_entity import StoicQuoteEntity
-        cached = getattr(self, "_stoic_quote", None)
-        if cached is None:
-            cached = StoicQuoteEntity(self, None)
-            self._stoic_quote = cached
-        return cached
-
-    def StoicQuote(self, data=None):
-        # Deprecated: use client.stoic_quote instead.
+    def StoicQuote(self, data=None) -> "StoicQuoteEntity":
+        """Entity factory: client.StoicQuote().list({}) / client.StoicQuote().load({"id": ...})."""
         from entity.stoic_quote_entity import StoicQuoteEntity
         return StoicQuoteEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "StoicismQuoteSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class StoicismQuoteSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.stoic_quote_entity import StoicQuoteEntity

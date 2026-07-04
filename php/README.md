@@ -33,9 +33,10 @@ $client = new StoicismQuoteSDK();
 
 ```php
 try {
-    $result = $client->stoicquote()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare StoicQuote record (throws on error).
+    $stoicquote = $client->StoicQuote()->load(["id" => "example_id"]);
+    print_r($stoicquote);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = StoicismQuoteSDK::test();
+$client = StoicismQuoteSDK::test([
+    "entity" => ["stoicquote" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->stoicquote()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$stoicquote = $client->StoicQuote()->load(["id" => "test01"]);
+print_r($stoicquote);
 ```
 
 ### Use a custom fetch function
@@ -223,7 +228,7 @@ API path: `/stoic-quote`
 
 ### StoicQuote
 
-Create an instance: `const stoic_quote = client.stoic_quote`
+Create an instance: `$stoic_quote = $client->StoicQuote();`
 
 #### Operations
 
@@ -239,8 +244,9 @@ Create an instance: `const stoic_quote = client.stoic_quote`
 
 #### Example: Load
 
-```ts
-const stoic_quote = await client.stoic_quote.load({ id: 'stoic_quote_id' })
+```php
+// load() returns the bare StoicQuote record (throws on error).
+$stoic_quote = $client->StoicQuote()->load(["id" => "stoic_quote_id"]);
 ```
 
 
@@ -315,7 +321,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$stoicquote = $client->stoicquote();
+$stoicquote = $client->StoicQuote();
 $stoicquote->load(["id" => "example_id"]);
 
 // $stoicquote->dataGet() now returns the loaded stoicquote data

@@ -208,13 +208,7 @@ class StoicismQuoteSDK
   end
 
 
-  # Idiomatic facade: client.stoic_quote.list / client.stoic_quote.load({ "id" => ... })
-  def stoic_quote
-    require_relative 'entity/stoic_quote_entity'
-    @stoic_quote ||= StoicQuoteEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.stoic_quote instead.
+  # Canonical facade: client.StoicQuote.list / client.StoicQuote.load({ "id" => ... })
   def StoicQuote(data = nil)
     require_relative 'entity/stoic_quote_entity'
     StoicQuoteEntity.new(self, data)

@@ -204,14 +204,7 @@ class StoicismQuoteSDK {
 
 
 
-  _stoic_quote?: StoicQuoteEntity
-
-  // Idiomatic facade: `client.stoic_quote.list()` / `client.stoic_quote.load({ id })`.
-  get stoic_quote(): StoicQuoteEntity {
-    return (this._stoic_quote ??= new StoicQuoteEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.stoic_quote` instead. */
+  // Entity access: `client.StoicQuote().list()` / `client.StoicQuote().load({ id })`.
   StoicQuote(data?: any) {
     const self = this
     return new StoicQuoteEntity(self,data)

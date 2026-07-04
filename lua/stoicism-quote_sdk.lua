@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:stoic_quote():list() / client:stoic_quote():load({ id = ... })
-function StoicismQuoteSDK:stoic_quote(data)
+-- Idiomatic facade: client:StoicQuote():list() / client:StoicQuote():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function StoicismQuoteSDK:StoicQuote(data)
   local EntityMod = require("entity.stoic_quote_entity")
   if data == nil then
     if self._stoic_quote == nil then
@@ -253,12 +254,6 @@ function StoicismQuoteSDK:stoic_quote(data)
     end
     return self._stoic_quote
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:stoic_quote() instead.
-function StoicismQuoteSDK:StoicQuote(data)
-  local EntityMod = require("entity.stoic_quote_entity")
   return EntityMod.new(self, data)
 end
 

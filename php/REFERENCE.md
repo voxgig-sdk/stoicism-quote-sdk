@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## StoicQuoteEntity
 
 ```php
-$stoic_quote = $client->stoic_quote();
+$stoic_quote = $client->StoicQuote();
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ $stoic_quote = $client->stoic_quote();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->stoic_quote()->load(["id" => "stoic_quote_id"]);
+$result = $client->StoicQuote()->load(["id" => "stoic_quote_id"]);
 ```
 
 ### Common Methods

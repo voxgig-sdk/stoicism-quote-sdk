@@ -233,10 +233,10 @@ class StoicismQuoteSDK
 
     private $_stoic_quote = null;
 
-    // Idiomatic facade: $client->stoic_quote()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias StoicQuote() (PHP method
-    // names are case-insensitive).
-    public function stoic_quote($data = null)
+    // Canonical facade: $client->StoicQuote()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->stoic_quote()
+    // resolves here too.
+    public function StoicQuote($data = null)
     {
         require_once __DIR__ . '/entity/stoic_quote_entity.php';
         if ($data === null) {

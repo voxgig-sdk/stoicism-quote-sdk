@@ -109,7 +109,7 @@ Alias for `StoicismQuoteSDK.test()`.
 ## StoicQuoteEntity
 
 ```ts
-const stoic_quote = client.stoic_quote
+const stoic_quote = client.StoicQuote()
 ```
 
 ### Fields
@@ -125,7 +125,7 @@ const stoic_quote = client.stoic_quote
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.stoic_quote.load({ id: 'stoic_quote_id' })
+const result = await client.StoicQuote().load({ id: 'stoic_quote_id' })
 ```
 
 ### Common Methods

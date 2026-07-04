@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## StoicQuoteEntity
 
 ```python
-stoic_quote = client.stoic_quote
+stoic_quote = client.StoicQuote()
 ```
 
 ### Fields
@@ -96,7 +96,7 @@ stoic_quote = client.stoic_quote
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.stoic_quote.load({"id": "stoic_quote_id"})
+result = client.StoicQuote().load({"id": "stoic_quote_id"})
 ```
 
 ### Common Methods

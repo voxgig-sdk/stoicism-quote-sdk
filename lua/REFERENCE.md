@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## StoicQuoteEntity
 
 ```lua
-local stoic_quote = client:stoic_quote(nil)
+local stoic_quote = client:StoicQuote(nil)
 ```
 
 ### Fields
@@ -99,7 +99,7 @@ local stoic_quote = client:stoic_quote(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:stoic_quote():load({ id = "stoic_quote_id" })
+local result, err = client:StoicQuote():load({ id = "stoic_quote_id" })
 ```
 
 ### Common Methods
