@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## StoicQuoteEntity
 
 ```lua
-local stoic_quote = client:StoicQuote(nil)
+local stoic_quote = client:stoic_quote(nil)
 ```
 
 ### Fields
@@ -100,7 +99,7 @@ local stoic_quote = client:StoicQuote(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:StoicQuote():load({ id = "stoic_quote_id" })
+local result, err = client:stoic_quote():load({ id = "stoic_quote_id" })
 ```
 
 ### Common Methods

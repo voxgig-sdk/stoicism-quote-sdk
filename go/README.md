@@ -10,14 +10,18 @@ The Golang SDK for the StoicismQuote API — an entity-oriented client using sta
 
 ## Install
 ```bash
-go get github.com/voxgig-sdk/stoicism-quote-sdk/go
+go get github.com/voxgig-sdk/stoicism-quote-sdk/go@latest
 ```
 
-If the module is not yet published to a registry, use a `replace` directive
-in your `go.mod` to point to a local checkout:
+The Go module proxy resolves the version from the `go/vX.Y.Z` GitHub
+release tag — see [Releases](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) for the available versions.
+
+To vendor from a local checkout instead, clone this repo alongside your
+project and add a `replace` directive pointing at the checked-out
+`go/` directory:
 
 ```bash
-go mod edit -replace github.com/voxgig-sdk/stoicism-quote-sdk/go=../path/to/github.com/voxgig-sdk/stoicism-quote-sdk/go
+go mod edit -replace github.com/voxgig-sdk/stoicism-quote-sdk/go=../stoicism-quote-sdk/go
 ```
 
 
@@ -33,16 +37,13 @@ package main
 
 import (
     "fmt"
-    "os"
 
     sdk "github.com/voxgig-sdk/stoicism-quote-sdk/go"
     "github.com/voxgig-sdk/stoicism-quote-sdk/go/core"
 )
 
 func main() {
-    client := sdk.NewStoicismQuoteSDK(map[string]any{
-        "apikey": os.Getenv("STOICISM-QUOTE_APIKEY"),
-    })
+    client := sdk.New()
 ```
 
 ### 3. Load a stoicquote
@@ -109,7 +110,7 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Planet(nil).Load(
+result, err := client.StoicQuote(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
 // result contains mock response data
@@ -144,8 +145,7 @@ client := sdk.NewStoicismQuoteSDK(map[string]any{
 Create a `.env.local` file at the project root:
 
 ```
-STOICISM-QUOTE_TEST_LIVE=TRUE
-STOICISM-QUOTE_APIKEY=<your-key>
+STOICISM_QUOTE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -167,7 +167,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `"apikey"` | `string` | API key for authentication. |
 | `"base"` | `string` | Base URL of the API server. |
 | `"prefix"` | `string` | URL path prefix prepended to all requests. |
 | `"suffix"` | `string` | URL path suffix appended to all requests. |
@@ -332,11 +331,11 @@ Entity instances are stateful. After a successful `Load`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-moon := client.Moon(nil)
-moon.Load(map[string]any{"planet_id": "earth", "id": "luna"}, nil)
+stoicquote := client.StoicQuote(nil)
+stoicquote.Load(map[string]any{"id": "example_id"}, nil)
 
-// moon.Data() now returns the loaded moon data
-// moon.Match() returns the last match criteria
+// stoicquote.Data() now returns the loaded stoicquote data
+// stoicquote.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

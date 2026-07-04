@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch StoicQuoteLoadMatch
+---@param ctrl? table
+---@return StoicQuote
+---@return string? err
 function StoicQuoteEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

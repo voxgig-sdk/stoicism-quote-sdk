@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `StoicismQuoteSDK.test()`.
 ## StoicQuoteEntity
 
 ```ts
-const stoic_quote = client.StoicQuote()
+const stoic_quote = client.stoic_quote
 ```
 
 ### Fields
@@ -126,7 +125,7 @@ const stoic_quote = client.StoicQuote()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.StoicQuote().load({ id: 'stoic_quote_id' })
+const result = await client.stoic_quote.load({ id: 'stoic_quote_id' })
 ```
 
 ### Common Methods

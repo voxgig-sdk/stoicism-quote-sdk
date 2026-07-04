@@ -245,6 +245,9 @@ func (sdk *StoicismQuoteSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// StoicQuote returns a StoicQuote entity bound to this client.
+// Idiomatic usage: client.StoicQuote(nil).List(nil, nil) or
+// client.StoicQuote(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *StoicismQuoteSDK) StoicQuote(data map[string]any) StoicismQuoteEntity {
 	return NewStoicQuoteEntityFunc(sdk, data)
 }

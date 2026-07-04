@@ -9,9 +9,12 @@ The TypeScript SDK for the StoicismQuote API — a type-safe, entity-oriented cl
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/stoicism-quote
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/stoicism-quote-sdk/releases](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { StoicismQuoteSDK } from 'stoicism-quote'
+import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote'
 
-const client = new StoicismQuoteSDK({
-  apikey: process.env.STOICISM-QUOTE_APIKEY,
-})
+const client = new StoicismQuoteSDK()
 ```
 
 ### 3. Load a stoicquote
 
 ```ts
-const result = await client.StoicQuote().load({ id: 'example_id' })
+const result = await client.stoicquote.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = StoicismQuoteSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.stoicquote.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new StoicismQuoteSDK({ apikey: '...' })
+const client = new StoicismQuoteSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.stoicquote
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new StoicismQuoteSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new StoicismQuoteSDK({
 Create a `.env.local` file at the project root:
 
 ```
-STOICISM-QUOTE_TEST_LIVE=TRUE
-STOICISM-QUOTE_APIKEY=<your-key>
+STOICISM_QUOTE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new StoicismQuoteSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new StoicismQuoteSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -266,7 +263,7 @@ API path: `/stoic-quote`
 
 ### StoicQuote
 
-Create an instance: `const stoic_quote = client.StoicQuote()`
+Create an instance: `const stoic_quote = client.stoic_quote`
 
 #### Operations
 
@@ -283,7 +280,7 @@ Create an instance: `const stoic_quote = client.StoicQuote()`
 #### Example: Load
 
 ```ts
-const stoic_quote = await client.StoicQuote().load({ id: 'stoic_quote_id' })
+const stoic_quote = await client.stoic_quote.load({ id: 'stoic_quote_id' })
 ```
 
 
@@ -344,7 +341,7 @@ stoicism-quote/
 Import the SDK from the package root:
 
 ```ts
-import { StoicismQuoteSDK } from 'stoicism-quote'
+import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote'
 ```
 
 ### Entity state
@@ -354,11 +351,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const stoicquote = client.stoicquote
+await stoicquote.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// stoicquote.data() now returns the loaded stoicquote data
+// stoicquote.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

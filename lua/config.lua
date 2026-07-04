@@ -14,9 +14,6 @@ local function make_config()
     },
     options = {
       base = "https://stoic.tekloon.net",
-      auth = {
-        prefix = "Bearer",
-      },
       headers = {
         ["content-type"] = "application/json",
       },

@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:stoic_quote():list() / client:stoic_quote():load({ id = ... })
+function StoicismQuoteSDK:stoic_quote(data)
+  local EntityMod = require("entity.stoic_quote_entity")
+  if data == nil then
+    if self._stoic_quote == nil then
+      self._stoic_quote = EntityMod.new(self, nil)
+    end
+    return self._stoic_quote
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:stoic_quote() instead.
 function StoicismQuoteSDK:StoicQuote(data)
   local EntityMod = require("entity.stoic_quote_entity")
   return EntityMod.new(self, data)

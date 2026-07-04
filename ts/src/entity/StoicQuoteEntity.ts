@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  StoicQuote,
+  StoicQuoteLoadMatch,
+} from '../StoicismQuoteTypes'
 
 // TODO: needs Entity superclass
-class StoicQuoteEntity extends StoicismQuoteEntityBase {
+class StoicQuoteEntity extends StoicismQuoteEntityBase<StoicQuote> {
 
   constructor(client: StoicismQuoteSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class StoicQuoteEntity extends StoicismQuoteEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: StoicQuoteLoadMatch, ctrl?: Control): Promise<StoicQuote> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class StoicQuoteEntity extends StoicismQuoteEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<StoicQuote> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

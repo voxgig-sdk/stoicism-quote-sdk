@@ -49,8 +49,7 @@ class TestStoicQuoteEntity:
         # LOAD
         stoic_quote_ref01_ent = client.StoicQuote(None)
         stoic_quote_ref01_match_dt0 = {}
-        stoic_quote_ref01_data_dt0_loaded, err = stoic_quote_ref01_ent.load(stoic_quote_ref01_match_dt0, None)
-        assert err is None
+        stoic_quote_ref01_data_dt0_loaded = stoic_quote_ref01_ent.load(stoic_quote_ref01_match_dt0, None)
         assert stoic_quote_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _stoic_quote_basic_setup(extra):
         "STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID": idmap,
         "STOICISMQUOTE_TEST_LIVE": "FALSE",
         "STOICISMQUOTE_TEST_EXPLAIN": "FALSE",
-        "STOICISMQUOTE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _stoic_quote_basic_setup(extra):
     if env.get("STOICISMQUOTE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("STOICISMQUOTE_APIKEY"),
             },
             extra or {},
         ])

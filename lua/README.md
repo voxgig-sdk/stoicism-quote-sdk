@@ -9,12 +9,9 @@ The Lua SDK for the StoicismQuote API — an entity-oriented client using Lua co
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-stoicism-quote
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("stoicism-quote_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("STOICISM-QUOTE_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 3. Load a stoicquote
 
 ```lua
-local result, err = client:StoicQuote():load({ id = "example_id" })
+local result, err = client:stoicquote():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:StoicismQuote():load({ id = "test01" })
+local result, err = client:stoicquote():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +115,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-STOICISM-QUOTE_TEST_LIVE=TRUE
-STOICISM-QUOTE_APIKEY=<your-key>
+STOICISM_QUOTE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -221,7 +214,7 @@ API path: `/stoic-quote`
 
 ### StoicQuote
 
-Create an instance: `const stoic_quote = client.StoicQuote()`
+Create an instance: `const stoic_quote = client.stoic_quote`
 
 #### Operations
 
@@ -238,7 +231,7 @@ Create an instance: `const stoic_quote = client.StoicQuote()`
 #### Example: Load
 
 ```ts
-const stoic_quote = await client.StoicQuote().load({ id: 'stoic_quote_id' })
+const stoic_quote = await client.stoic_quote.load({ id: 'stoic_quote_id' })
 ```
 
 
@@ -313,11 +306,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local stoicquote = client:stoicquote()
+stoicquote:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- stoicquote:data_get() now returns the loaded stoicquote data
+-- stoicquote:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

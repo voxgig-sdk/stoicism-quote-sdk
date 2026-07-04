@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "API Support"
         url: "https://github.com/tlcheah2/stoic-quote-lambda-public-api"

@@ -49,8 +49,7 @@ class StoicQuoteEntityTest extends TestCase
         // LOAD
         $stoic_quote_ref01_ent = $client->StoicQuote(null);
         $stoic_quote_ref01_match_dt0 = [];
-        [$stoic_quote_ref01_data_dt0_loaded, $err] = $stoic_quote_ref01_ent->load($stoic_quote_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $stoic_quote_ref01_data_dt0_loaded = $stoic_quote_ref01_ent->load($stoic_quote_ref01_match_dt0, null);
         $this->assertNotNull($stoic_quote_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function stoic_quote_basic_setup($extra)
         "STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID" => $idmap,
         "STOICISMQUOTE_TEST_LIVE" => "FALSE",
         "STOICISMQUOTE_TEST_EXPLAIN" => "FALSE",
-        "STOICISMQUOTE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function stoic_quote_basic_setup($extra)
     if ($env["STOICISMQUOTE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["STOICISMQUOTE_APIKEY"],
             ],
             $extra ?? [],
         ]);
