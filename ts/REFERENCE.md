@@ -116,7 +116,7 @@ const stoic_quote = client.StoicQuote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | Yes |  |
+| `data` | `Record<string, any>` | Yes |  |
 
 ### Operations
 
@@ -125,7 +125,7 @@ const stoic_quote = client.StoicQuote()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.StoicQuote().load({ id: 'stoic_quote_id' })
+const result = await client.StoicQuote().load()
 ```
 
 ### Common Methods

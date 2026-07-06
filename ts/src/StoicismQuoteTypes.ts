@@ -9,5 +9,7 @@ export interface StoicQuote {
   data: Record<string, any>
 }
 
-export type StoicQuoteLoadMatch = Partial<StoicQuote>
+export interface StoicQuoteLoadMatch {
+  data?: Record<string, any>
+}
 

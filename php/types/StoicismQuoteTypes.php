@@ -18,7 +18,7 @@ class StoicQuote
     public array $data;
 }
 
-/** Match filter for StoicQuote#load (any subset of StoicQuote fields). */
+/** Request payload for StoicQuote#load. */
 class StoicQuoteLoadMatch
 {
     public ?array $data = null;

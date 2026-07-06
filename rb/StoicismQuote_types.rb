@@ -17,7 +17,7 @@ StoicQuote = Struct.new(
   keyword_init: true
 )
 
-# Match filter for StoicQuote#load (any subset of StoicQuote fields).
+# Request payload for StoicQuote#load.
 #
 # @!attribute [rw] data
 #   @return [Hash, nil]

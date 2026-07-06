@@ -221,7 +221,7 @@ class StoicismQuoteSDK:
 
 
     def StoicQuote(self, data=None) -> "StoicQuoteEntity":
-        """Entity factory: client.StoicQuote().list({}) / client.StoicQuote().load({"id": ...})."""
+        """Entity factory: client.StoicQuote().list() / client.StoicQuote().load({"id": ...})."""
         from entity.stoic_quote_entity import StoicQuoteEntity
         return StoicQuoteEntity(self, data)
 

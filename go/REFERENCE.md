@@ -97,7 +97,7 @@ stoic_quote := client.StoicQuote(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | Yes |  |
+| `data` | `map[string]any` | Yes |  |
 
 ### Operations
 
@@ -106,7 +106,7 @@ stoic_quote := client.StoicQuote(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.StoicQuote(nil).Load(map[string]any{"id": "stoic_quote_id"}, nil)
+result, err := client.StoicQuote(nil).Load(nil, nil)
 ```
 
 ### Common Methods

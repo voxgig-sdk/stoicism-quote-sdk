@@ -8,7 +8,7 @@ Complete API reference for the StoicismQuote Python SDK.
 ### Constructor
 
 ```python
-from stoicism-quote_sdk import StoicismQuoteSDK
+from stoicismquote_sdk import StoicismQuoteSDK
 
 client = StoicismQuoteSDK(options)
 ```
@@ -87,7 +87,7 @@ stoic_quote = client.StoicQuote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | Yes |  |
+| `data` | `dict` | Yes |  |
 
 ### Operations
 
@@ -96,7 +96,7 @@ stoic_quote = client.StoicQuote()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.StoicQuote().load({"id": "stoic_quote_id"})
+result = client.StoicQuote().load()
 ```
 
 ### Common Methods

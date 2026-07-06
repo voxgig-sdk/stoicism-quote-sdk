@@ -13,8 +13,7 @@ type StoicQuote struct {
 	Data map[string]any `json:"data"`
 }
 
-// StoicQuoteLoadMatch mirrors the stoic_quote fields as an all-optional match
-// filter (Go analog of Partial<StoicQuote>).
+// StoicQuoteLoadMatch is the typed request payload for StoicQuote.LoadTyped.
 type StoicQuoteLoadMatch struct {
 	Data *map[string]any `json:"data,omitempty"`
 }

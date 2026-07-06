@@ -10,6 +10,7 @@
 ---@field data table
 
 ---@class StoicQuoteLoadMatch
+---@field data? table
 
 local M = {}
 

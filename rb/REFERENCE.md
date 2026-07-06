@@ -8,7 +8,7 @@ Complete API reference for the StoicismQuote Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'stoicism-quote_sdk'
+require_relative 'StoicismQuote_sdk'
 
 client = StoicismQuoteSDK.new(options)
 ```
@@ -93,7 +93,7 @@ stoic_quote = client.StoicQuote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | Yes |  |
+| `data` | `Hash` | Yes |  |
 
 ### Operations
 
@@ -102,7 +102,7 @@ stoic_quote = client.StoicQuote
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.StoicQuote.load({ "id" => "stoic_quote_id" })
+result = client.StoicQuote.load()
 ```
 
 ### Common Methods

@@ -90,7 +90,7 @@ local stoic_quote = client:StoicQuote(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | Yes |  |
+| `data` | `table` | Yes |  |
 
 ### Operations
 
@@ -99,7 +99,7 @@ local stoic_quote = client:StoicQuote(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:StoicQuote():load({ id = "stoic_quote_id" })
+local result, err = client:StoicQuote():load()
 ```
 
 ### Common Methods

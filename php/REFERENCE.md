@@ -8,7 +8,7 @@ Complete API reference for the StoicismQuote PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/stoicism-quote_sdk.php';
+require_once __DIR__ . '/stoicismquote_sdk.php';
 
 $client = new StoicismQuoteSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = StoicismQuoteSDK::test();
 
 Create a new `StoicQuoteEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): StoicismQuoteUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,7 +92,7 @@ $stoic_quote = $client->StoicQuote();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | ``$OBJECT`` | Yes |  |
+| `data` | `array` | Yes |  |
 
 ### Operations
 
@@ -101,24 +101,24 @@ $stoic_quote = $client->StoicQuote();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->StoicQuote()->load(["id" => "stoic_quote_id"]);
+$result = $client->StoicQuote()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -127,7 +127,7 @@ Set the entity match criteria.
 Create a new `StoicQuoteEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
