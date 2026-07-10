@@ -20,9 +20,9 @@ main: {
           url: "https://stoic.tekloon.net"
         }
       ]
+      summary: "This API generates stoicism quotes to help you live a better life using Stoicism wisdom."
       title: "Stoicism Quote API"
       version: "1.0.0"
+      website: "https://github.com/tlcheah2/stoic-quote-lambda-public-api"
     }
   }
-}
-

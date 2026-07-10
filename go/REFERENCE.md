@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## StoicQuoteEntity
 
 ```go
-stoic_quote := client.StoicQuote(nil)
+stoicQuote := client.StoicQuote(nil)
+fmt.Println(stoicQuote.GetName()) // "stoic_quote"
 ```
 
 ### Fields
@@ -107,6 +108,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.StoicQuote(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

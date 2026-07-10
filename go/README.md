@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single stoicquote — the value is the loaded record.
-    stoicquote, err := client.StoicQuote(nil).Load(nil, nil)
+    // Load a single stoicQuote — the value is the loaded record.
+    stoicQuote, err := client.StoicQuote(nil).Load(nil, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(stoicquote)
+    fmt.Println(stoicQuote)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-stoicquote, err := client.StoicQuote(nil).Load(
+stoicQuote, err := client.StoicQuote(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(stoicquote) // the returned mock data
+fmt.Println(stoicQuote) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    stoicquote, err := client.StoicQuote(nil).Load(nil, nil)
+    stoicQuote, err := client.StoicQuote(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // stoicquote is the returned record
+    // stoicQuote is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -271,7 +271,7 @@ API path: `/stoic-quote`
 
 ### StoicQuote
 
-Create an instance: `stoic_quote := client.StoicQuote(nil)`
+Create an instance: `stoicQuote := client.StoicQuote(nil)`
 
 #### Operations
 
@@ -288,11 +288,11 @@ Create an instance: `stoic_quote := client.StoicQuote(nil)`
 #### Example: Load
 
 ```go
-stoic_quote, err := client.StoicQuote(nil).Load(nil, nil)
+stoicQuote, err := client.StoicQuote(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(stoic_quote) // the loaded record
+fmt.Println(stoicQuote) // the loaded record
 ```
 
 

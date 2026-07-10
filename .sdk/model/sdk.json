@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -199,14 +196,17 @@
           "name": "MIT",
           "url": "https://opensource.org/licenses/MIT"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://stoic.tekloon.net"
           }
         ],
+        "summary": "This API generates stoicism quotes to help you live a better life using Stoicism wisdom.",
         "title": "Stoicism Quote API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://github.com/tlcheah2/stoic-quote-lambda-public-api"
       },
       "option": {},
       "target": {
@@ -259,6 +259,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -309,6 +312,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
