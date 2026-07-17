@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- StoicismQuote SDK exists test
 
 local sdk = require("stoicism-quote_sdk")
 
