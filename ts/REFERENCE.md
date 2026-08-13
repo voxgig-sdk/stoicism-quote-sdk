@@ -116,7 +116,8 @@ const stoic_quote = client.StoicQuote()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Record<string, any>` | Yes |  |
+| `author` | `string` | Yes |  |
+| `quote` | `string` | Yes |  |
 
 ### Operations
 

@@ -15,12 +15,14 @@ declare(strict_types=1);
 /** StoicQuote entity data model. */
 class StoicQuote
 {
-    public array $data;
+    public string $author;
+    public string $quote;
 }
 
 /** Request payload for StoicQuote#load. */
 class StoicQuoteLoadMatch
 {
-    public ?array $data = null;
+    public ?string $author = null;
+    public ?string $quote = null;
 }
 

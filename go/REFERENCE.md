@@ -98,7 +98,8 @@ fmt.Println(stoicQuote.GetName()) // "stoic_quote"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `map[string]any` | Yes |  |
+| `author` | `string` | Yes |  |
+| `quote` | `string` | Yes |  |
 
 ### Operations
 

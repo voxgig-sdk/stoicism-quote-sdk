@@ -26,10 +26,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "data",
+						"name": "author",
 						"req": true,
-						"type": "`$OBJECT`",
+						"type": "`$STRING`",
 						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
+						"name": "quote",
+						"req": true,
+						"type": "`$STRING`",
+						"index$": 1,
 					},
 				},
 				"name": "stoic_quote",
@@ -41,6 +48,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/stoic-quote",
 								"parts": []any{
@@ -49,12 +57,11 @@ func MakeConfig() map[string]any {
 								"select": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

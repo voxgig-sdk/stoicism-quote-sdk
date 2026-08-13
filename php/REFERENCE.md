@@ -92,7 +92,8 @@ $stoic_quote = $client->StoicQuote();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `array` | Yes |  |
+| `author` | `string` | Yes |  |
+| `quote` | `string` | Yes |  |
 
 ### Operations
 

@@ -26,8 +26,8 @@ import {
 describe('StoicQuoteEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when STOICISMQUOTE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('STOICISMQUOTE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when STOICISM_QUOTE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('STOICISM_QUOTE_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = StoicismQuoteSDK.test()
@@ -62,7 +62,7 @@ describe('StoicQuoteEntity', async () => {
     // LOAD
     const stoic_quote_ref01_ent = client.StoicQuote()
     const stoic_quote_ref01_match_dt0: any = {}
-    const stoic_quote_ref01_data_dt0 = await stoic_quote_ref01_ent.load(stoic_quote_ref01_match_dt0)
+    const stoic_quote_ref01_data_dt0 = (await stoic_quote_ref01_ent.load(stoic_quote_ref01_match_dt0)).data()
     assert(null != stoic_quote_ref01_data_dt0)
 
 

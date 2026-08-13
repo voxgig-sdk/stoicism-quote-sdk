@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = StoicismQuoteSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = StoicismQuoteSDK.test({
+  entity: {
+    stoic_quote: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const stoicquote = await client.StoicQuote().load()
-// stoicquote is a bare StoicQuote populated with mock data
+// stoicquote is the StoicQuote entity, populated with mock data
+// — call stoicquote.data() for the record itself
 console.log(stoicquote)
 ```
 
@@ -182,7 +191,7 @@ require_once 'stoicismquote_sdk.php';
 $client = new StoicismQuoteSDK();
 
 
-// Load a specific stoicquote (returns the bare record; throws on error)
+// Load a specific stoicquote (returns the ENTITY; call data_get() for the record; throws on error)
 $stoicquote = $client->StoicQuote()->load();
 print_r($stoicquote);
 ```
@@ -210,7 +219,7 @@ require_relative "StoicismQuote_sdk"
 client = StoicismQuoteSDK.new
 
 
-# Load a specific stoicquote (returns the bare record; raises on error)
+# Load a specific stoicquote (returns the ENTITY; call data_get for the record)
 stoicquote = client.StoicQuote.load()
 puts stoicquote
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/tlcheah2/stoic-quote-lambda-public-api](https://github.com/tlcheah2/stoic-quote-lambda-public-api)
 

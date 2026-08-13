@@ -34,7 +34,7 @@ client = StoicismQuoteSDK.new
 
 ```ruby
 begin
-  # load returns the bare StoicQuote record (raises on error).
+  # load returns the ENTITY — call data_get for the StoicQuote record (raises on error).
   stoicquote = client.StoicQuote.load()
   puts stoicquote
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = StoicismQuoteSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 stoicquote = client.StoicQuote.load()
 puts stoicquote
 ```
@@ -234,7 +235,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `author` |  |
+| `quote` |  |
 
 Operations: Load.
 
@@ -259,12 +261,13 @@ Create an instance: `stoic_quote = client.StoicQuote`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Hash` |  |
+| `author` | `String` |  |
+| `quote` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare StoicQuote record (raises on error).
+# load returns the ENTITY — call data_get for the StoicQuote record (raises on error).
 stoic_quote = client.StoicQuote.load()
 ```
 

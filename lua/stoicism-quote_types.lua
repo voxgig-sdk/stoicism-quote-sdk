@@ -7,10 +7,12 @@
 -- edit by hand.
 
 ---@class StoicQuote
----@field data table
+---@field author string
+---@field quote string
 
 ---@class StoicQuoteLoadMatch
----@field data? table
+---@field author? string
+---@field quote? string
 
 local M = {}
 

@@ -90,7 +90,8 @@ local stoic_quote = client:StoicQuote(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `table` | Yes |  |
+| `author` | `string` | Yes |  |
+| `quote` | `string` | Yes |  |
 
 ### Operations
 

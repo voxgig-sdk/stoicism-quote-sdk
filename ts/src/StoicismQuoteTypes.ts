@@ -6,10 +6,12 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface StoicQuote {
-  data: Record<string, any>
+  author: string
+  quote: string
 }
 
 export interface StoicQuoteLoadMatch {
-  data?: Record<string, any>
+  author?: string
+  quote?: string
 }
 

@@ -8,6 +8,7 @@ guide: {
   entity: stoic_quote: {
     path: "/stoic-quote": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.data`")|top
     }
   }
 

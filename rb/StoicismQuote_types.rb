@@ -10,19 +10,27 @@
 
 # StoicQuote entity data model.
 #
-# @!attribute [rw] data
-#   @return [Hash]
+# @!attribute [rw] author
+#   @return [String]
+#
+# @!attribute [rw] quote
+#   @return [String]
 StoicQuote = Struct.new(
-  :data,
+  :author,
+  :quote,
   keyword_init: true
 )
 
 # Request payload for StoicQuote#load.
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
+# @!attribute [rw] author
+#   @return [String, nil]
+#
+# @!attribute [rw] quote
+#   @return [String, nil]
 StoicQuoteLoadMatch = Struct.new(
-  :data,
+  :author,
+  :quote,
   keyword_init: true
 )
 

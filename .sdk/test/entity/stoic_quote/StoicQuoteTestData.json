@@ -2,15 +2,18 @@
   "existing": {
     "stoic_quote": {
       "STOIC_QUOTE00": {
-        "data": {},
+        "author": "s14",
+        "quote": "s15",
         "id": "STOIC_QUOTE00"
       },
       "STOIC_QUOTE01": {
-        "data": {},
+        "author": "s28",
+        "quote": "s29",
         "id": "STOIC_QUOTE01"
       },
       "STOIC_QUOTE02": {
-        "data": {},
+        "author": "s3c",
+        "quote": "s3d",
         "id": "STOIC_QUOTE02"
       }
     }
@@ -18,7 +21,8 @@
   "new": {
     "stoic_quote": {
       "stoic_quote_ref01": {
-        "data": {}
+        "author": "s50",
+        "quote": "s51"
       }
     }
   }

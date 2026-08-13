@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = StoicismQuoteSDK.test()
 
 const stoicquote = await client.StoicQuote().load()
-// stoicquote is a bare entity populated with mock response data
+// stoicquote is the entity, populated with mock response data
+// — call stoicquote.data() for the record itself
 console.log(stoicquote)
 ```
 
@@ -284,7 +285,8 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `data` |  |
+| `author` |  |
+| `quote` |  |
 
 Operations: load.
 
@@ -309,7 +311,8 @@ Create an instance: `const stoic_quote = client.StoicQuote()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `Record<string, any>` |  |
+| `author` | `string` |  |
+| `quote` | `string` |  |
 
 #### Example: Load
 

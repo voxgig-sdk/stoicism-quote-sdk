@@ -93,7 +93,8 @@ stoic_quote = client.StoicQuote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `data` | `Hash` | Yes |  |
+| `author` | `String` | Yes |  |
+| `quote` | `String` | Yes |  |
 
 ### Operations
 

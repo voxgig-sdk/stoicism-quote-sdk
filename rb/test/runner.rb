@@ -23,8 +23,8 @@ module StoicismQuoteTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("STOICISMQUOTE_TEST_LIVE")
-    override = getenv("STOICISMQUOTE_TEST_OVERRIDE")
+    live = getenv("STOICISM_QUOTE_TEST_LIVE")
+    override = getenv("STOICISM_QUOTE_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module StoicismQuoteTestRunner
       end
     end
 
-    explain = getenv("STOICISMQUOTE_TEST_EXPLAIN")
-    m["STOICISMQUOTE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("STOICISM_QUOTE_TEST_EXPLAIN")
+    m["STOICISM_QUOTE_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

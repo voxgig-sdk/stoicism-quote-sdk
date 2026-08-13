@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import StoicismQuoteControl
-from core.error import StoicismQuoteError
-from core.result import StoicismQuoteResult
-from core.spec import StoicismQuoteSpec
+from stoicismquote_sdk.config import make_config
+from stoicismquote_sdk.features import _make_feature
+from stoicismquote_sdk.core.control import StoicismQuoteControl
+from stoicismquote_sdk.core.error import StoicismQuoteError
+from stoicismquote_sdk.core.result import StoicismQuoteResult
+from stoicismquote_sdk.core.spec import StoicismQuoteSpec
 
 
 # True when this SDK was generated with the named feature.

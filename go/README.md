@@ -258,7 +258,8 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"data"` |  |
+| `"author"` |  |
+| `"quote"` |  |
 
 Operations: Load.
 
@@ -283,7 +284,8 @@ Create an instance: `stoicQuote := client.StoicQuote(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `data` | `map[string]any` |  |
+| `author` | `string` |  |
+| `quote` | `string` |  |
 
 #### Example: Load
 

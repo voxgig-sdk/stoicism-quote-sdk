@@ -26,10 +26,17 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "data",
+            ["name"] = "author",
             ["req"] = true,
-            ["type"] = "`$OBJECT`",
+            ["type"] = "`$STRING`",
             ["index$"] = 0,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "quote",
+            ["req"] = true,
+            ["type"] = "`$STRING`",
+            ["index$"] = 1,
           },
         },
         ["name"] = "stoic_quote",
@@ -41,6 +48,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/stoic-quote",
                 ["parts"] = {
@@ -49,7 +57,7 @@ local function make_config()
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["index$"] = 0,
               },

@@ -60,11 +60,11 @@ function stoic_quote_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["STOICISMQUOTE_TEST_STOIC_QUOTE_ENTID"] = {},
-    ["STOICISMQUOTE_TEST_LIVE"] = "FALSE",
+    ["STOICISM_QUOTE_TEST_STOIC_QUOTE_ENTID"] = {},
+    ["STOICISM_QUOTE_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["STOICISMQUOTE_TEST_LIVE"] == "TRUE"
+  local live = env["STOICISM_QUOTE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

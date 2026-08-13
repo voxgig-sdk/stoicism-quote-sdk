@@ -16,11 +16,11 @@
 import pytest
 
 from stoicismquote_sdk import StoicismQuoteSDK
-from core.error import StoicismQuoteError
-from core.result import StoicismQuoteResult
-from core.response import StoicismQuoteResponse
-from core.spec import StoicismQuoteSpec
-from feature.base_feature import StoicismQuoteBaseFeature
+from stoicismquote_sdk.core.error import StoicismQuoteError
+from stoicismquote_sdk.core.result import StoicismQuoteResult
+from stoicismquote_sdk.core.response import StoicismQuoteResponse
+from stoicismquote_sdk.core.spec import StoicismQuoteSpec
+from stoicismquote_sdk.feature.base_feature import StoicismQuoteBaseFeature
 
 
 def _client():

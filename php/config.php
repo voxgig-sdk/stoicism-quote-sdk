@@ -32,10 +32,17 @@ class StoicismQuoteConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'data',
+              'name' => 'author',
               'req' => true,
-              'type' => '`$OBJECT`',
+              'type' => '`$STRING`',
               'index$' => 0,
+            ],
+            [
+              'active' => true,
+              'name' => 'quote',
+              'req' => true,
+              'type' => '`$STRING`',
+              'index$' => 1,
             ],
           ],
           'name' => 'stoic_quote',
@@ -47,6 +54,7 @@ class StoicismQuoteConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/stoic-quote',
                   'parts' => [
@@ -55,7 +63,7 @@ class StoicismQuoteConfig
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.data`',
                   ],
                   'index$' => 0,
                 ],

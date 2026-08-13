@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# StoicismQuote SDK exists test
 
 import pytest
 from stoicismquote_sdk import StoicismQuoteSDK
