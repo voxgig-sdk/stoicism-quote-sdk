@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://stoic.tekloon.net',
+    base: "https://stoic.tekloon.net",
 
     headers: {
       "content-type": "application/json"
@@ -55,18 +55,14 @@ class Config {
     "stoic_quote": {
       "fields": [
         {
-          "active": true,
           "name": "author",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "quote",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         }
       ],
       "name": "stoic_quote",
@@ -76,7 +72,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {},
               "kind": "http",
               "method": "GET",
@@ -88,11 +83,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.data`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

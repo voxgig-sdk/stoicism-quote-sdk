@@ -28,7 +28,7 @@ class StoicismQuoteSDK
     utility = StoicismQuoteUtility.new
     @_utility = utility
 
-    config = StoicismQuoteConfig.make_config
+    config = StoicismQuoteConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

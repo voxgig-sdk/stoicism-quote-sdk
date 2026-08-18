@@ -40,7 +40,7 @@ class StoicismQuoteSDK
         $utility = new StoicismQuoteUtility();
         $this->_utility = $utility;
 
-        $config = StoicismQuoteConfig::make_config();
+        $config = StoicismQuoteConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
