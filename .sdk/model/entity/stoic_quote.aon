@@ -8,11 +8,13 @@ main: kit: entity: stoic_quote: {
     {
       name: "author"
       req: true
+      short: "The author of the stoicism quote"
       type: "`$STRING`"
     }
     {
       name: "quote"
       req: true
+      short: "The stoicism quote text"
       type: "`$STRING`"
     }
   ]

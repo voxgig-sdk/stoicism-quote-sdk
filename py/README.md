@@ -241,8 +241,8 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `quote` |  |
+| `author` | The author of the stoicism quote |
+| `quote` | The stoicism quote text |
 
 Operations: Load.
 
@@ -267,8 +267,8 @@ Create an instance: `stoic_quote = client.StoicQuote()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `str` |  |
-| `quote` | `str` |  |
+| `author` | `str` | The author of the stoicism quote |
+| `quote` | `str` | The stoicism quote text |
 
 #### Example: Load
 

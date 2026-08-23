@@ -225,8 +225,8 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `quote` |  |
+| `author` | The author of the stoicism quote |
+| `quote` | The stoicism quote text |
 
 Operations: Load.
 
@@ -251,8 +251,8 @@ Create an instance: `local stoic_quote = client:StoicQuote(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `string` |  |
-| `quote` | `string` |  |
+| `author` | `string` | The author of the stoicism quote |
+| `quote` | `string` | The stoicism quote text |
 
 #### Example: Load
 

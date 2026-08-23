@@ -93,8 +93,8 @@ stoic_quote = client.StoicQuote
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `author` | `String` | Yes |  |
-| `quote` | `String` | Yes |  |
+| `author` | `String` | Yes | The author of the stoicism quote |
+| `quote` | `String` | Yes | The stoicism quote text |
 
 ### Operations
 

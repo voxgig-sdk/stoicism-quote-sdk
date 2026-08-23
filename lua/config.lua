@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "StoicismQuote",
+      slug = "stoicism-quote",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,11 +33,13 @@ local function make_config()
           {
             ["name"] = "author",
             ["req"] = true,
+            ["short"] = "The author of the stoicism quote",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "quote",
             ["req"] = true,
+            ["short"] = "The stoicism quote text",
             ["type"] = "`$STRING`",
           },
         },

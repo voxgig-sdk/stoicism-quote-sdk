@@ -36,12 +36,14 @@
               "active": true,
               "name": "author",
               "req": true,
+              "short": "The author of the stoicism quote",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "quote",
               "req": true,
+              "short": "The stoicism quote text",
               "type": "`$STRING`"
             }
           ],

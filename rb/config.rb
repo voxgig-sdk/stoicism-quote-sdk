@@ -19,6 +19,9 @@ module StoicismQuoteConfig
     {
       "main" => {
         "name" => "StoicismQuote",
+        "slug" => "stoicism-quote",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,11 +45,13 @@ module StoicismQuoteConfig
             {
               "name" => "author",
               "req" => true,
+              "short" => "The author of the stoicism quote",
               "type" => "`$STRING`",
             },
             {
               "name" => "quote",
               "req" => true,
+              "short" => "The stoicism quote text",
               "type" => "`$STRING`",
             },
           ],

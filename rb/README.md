@@ -235,8 +235,8 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `author` |  |
-| `quote` |  |
+| `author` | The author of the stoicism quote |
+| `quote` | The stoicism quote text |
 
 Operations: Load.
 
@@ -261,8 +261,8 @@ Create an instance: `stoic_quote = client.StoicQuote`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `author` | `String` |  |
-| `quote` | `String` |  |
+| `author` | `String` | The author of the stoicism quote |
+| `quote` | `String` | The stoicism quote text |
 
 #### Example: Load
 

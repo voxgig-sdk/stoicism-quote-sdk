@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "StoicismQuote",
+            "slug": "stoicism-quote",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,11 +54,13 @@ def make_config():
           {
             "name": "author",
             "req": True,
+            "short": "The author of the stoicism quote",
             "type": "`$STRING`",
           },
           {
             "name": "quote",
             "req": True,
+            "short": "The stoicism quote text",
             "type": "`$STRING`",
           },
         ],

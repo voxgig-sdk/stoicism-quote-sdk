@@ -33,6 +33,9 @@ class StoicismQuoteConfig
         return [
             "main" => [
                 "name" => "StoicismQuote",
+                "slug" => "stoicism-quote",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,11 +59,13 @@ class StoicismQuoteConfig
             [
               'name' => 'author',
               'req' => true,
+              'short' => 'The author of the stoicism quote',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'quote',
               'req' => true,
+              'short' => 'The stoicism quote text',
               'type' => '`$STRING`',
             ],
           ],
