@@ -42,6 +42,7 @@ class StoicismQuoteConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [

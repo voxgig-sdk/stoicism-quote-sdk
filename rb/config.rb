@@ -28,6 +28,7 @@ module StoicismQuoteConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
