@@ -27,8 +27,10 @@ main: kit: entity: stoic_quote: {
         {
           method: "GET"
           orig: "/stoic-quote"
-          parts: [
-            "stoic-quote"
+          segments: [
+            {
+              lit: "stoic-quote"
+            }
           ]
           transform: {
             req: "`reqdata`"

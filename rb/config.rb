@@ -67,14 +67,19 @@ module StoicismQuoteConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/stoic-quote",
-                  "parts" => [
-                    "stoic-quote",
+                  "segments" => [
+                    {
+                      "lit" => "stoic-quote",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body.data`",
                   },
+                  "parts" => [
+                    "stoic-quote",
+                  ],
                 },
               ],
             },
