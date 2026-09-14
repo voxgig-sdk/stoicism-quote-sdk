@@ -105,7 +105,7 @@ local result, err = client:StoicQuote():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
+| TypeScript | `@voxgig-sdk/stoicism-quote-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
 | Python | `voxgig-sdk-stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
 | PHP | `voxgig-sdk/stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/stoicism-quote-sdk/go` | `go get github.com/voxgig-sdk/stoicism-quote-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:StoicQuote():load()
 ### TypeScript
 
 ```ts
-import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote'
+import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote-sdk'
 
 const client = new StoicismQuoteSDK()
 

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote'
+import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote-sdk'
 
 const client = new StoicismQuoteSDK()
 ```
@@ -403,7 +403,7 @@ stoicism-quote/
 Import the SDK from the package root:
 
 ```ts
-import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote'
+import { StoicismQuoteSDK } from '@voxgig-sdk/stoicism-quote-sdk'
 ```
 
 ### Entity state
