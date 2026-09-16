@@ -25,5 +25,80 @@
         "quote": "s51"
       }
     }
+  },
+  "requests": {
+    "GET /stoic-quote": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getStoicQuote",
+        "parameters": [],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "author": "Ryan Holiday",
+                    "quote": "True will is quiet humility, resilience, and flexibility; the other kind of will is weakness disguised by bluster and ambition."
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "properties": {
+                        "author": {
+                          "description": "The author of the stoicism quote",
+                          "example": "Ryan Holiday",
+                          "type": "string"
+                        },
+                        "quote": {
+                          "description": "The stoicism quote text",
+                          "example": "True will is quiet humility, resilience, and flexibility; the other kind of will is weakness disguised by bluster and ambition.",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "author",
+                        "quote"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "data"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successfully retrieved a stoicism quote"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "example": "Internal server error",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Detailed error description",
+                      "example": "An unexpected error occurred while processing your request",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

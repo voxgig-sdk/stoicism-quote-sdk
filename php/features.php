@@ -4,7 +4,10 @@ declare(strict_types=1);
 // StoicismQuote SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class StoicismQuoteFeatures
@@ -14,8 +17,14 @@ class StoicismQuoteFeatures
         switch ($name) {
             case "base":
                 return new StoicismQuoteBaseFeature();
+            case "ratelimit":
+                return new StoicismQuoteRatelimitFeature();
+            case "retry":
+                return new StoicismQuoteRetryFeature();
             case "test":
                 return new StoicismQuoteTestFeature();
+            case "timeout":
+                return new StoicismQuoteTimeoutFeature();
             default:
                 return new StoicismQuoteBaseFeature();
         }
@@ -31,7 +40,10 @@ class StoicismQuoteFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
