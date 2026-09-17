@@ -105,12 +105,12 @@ local result, err = client:StoicQuote():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/stoicism-quote-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
-| Python | `voxgig-sdk-stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
-| PHP | `voxgig-sdk/stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
+| TypeScript | `@voxgig-sdk/stoicism-quote-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/tags) |
+| Python | `voxgig-sdk-stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/tags) |
+| PHP | `voxgig-sdk/stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/stoicism-quote-sdk/go` | `go get github.com/voxgig-sdk/stoicism-quote-sdk/go@latest` |
-| Ruby | `voxgig-sdk-stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
-| Lua | `voxgig-sdk-stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/releases) |
+| Ruby | `voxgig-sdk-stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/tags) |
+| Lua | `voxgig-sdk-stoicism-quote` | publish pending — [install from git tag](https://github.com/voxgig-sdk/stoicism-quote-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/stoicism-quote-sdk/go-cli` | `go install github.com/voxgig-sdk/stoicism-quote-sdk/go-cli/cmd/stoicism-quote@latest` |
 | Go MCP server | `github.com/voxgig-sdk/stoicism-quote-sdk/go-mcp` | `go get github.com/voxgig-sdk/stoicism-quote-sdk/go-mcp@latest` |
 
