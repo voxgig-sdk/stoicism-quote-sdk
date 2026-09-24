@@ -1,7 +1,7 @@
 // Typed models for the StoicismQuote SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,8 +14,6 @@ import (
 
 // StoicQuote is the typed data model for the stoic_quote entity.
 type StoicQuote struct {
-	Author string `json:"author"`
-	Quote string `json:"quote"`
 }
 
 // StoicQuoteLoadMatch is the typed request payload for StoicQuote.LoadTyped.

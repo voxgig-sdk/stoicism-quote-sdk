@@ -1,0 +1,53 @@
+# Entity: stoic_quote
+
+main: kit: entity: stoic_quote: {
+
+  alias: field: {}
+
+  fields: {
+    author: {
+      h: "Author"
+      n: "author"
+      r: true
+      sh: "The author of the stoicism quote"
+      t: "`$STRING`"
+    }
+    quote: {
+      h: "Quote"
+      n: "quote"
+      r: true
+      sh: "The stoicism quote text"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "stoic_quote"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /stoic-quote"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/stoic-quote"
+          s: [
+            {
+              lit: "stoic-quote"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

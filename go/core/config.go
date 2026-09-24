@@ -91,15 +91,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "author",
+						"title": "Author",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The author of the stoicism quote",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "quote",
+						"title": "Quote",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The stoicism quote text",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "stoic_quote",
@@ -109,7 +111,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/stoic-quote",
@@ -118,14 +119,16 @@ func MakeConfig() map[string]any {
 										"lit": "stoic-quote",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"stoic-quote",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body.data`",
 								},
-								"parts": []any{
-									"stoic-quote",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

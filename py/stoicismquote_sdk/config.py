@@ -116,15 +116,17 @@ def make_config():
         "fields": [
           {
             "name": "author",
+            "title": "Author",
+            "type": "`$STRING`",
             "req": True,
             "short": "The author of the stoicism quote",
-            "type": "`$STRING`",
           },
           {
             "name": "quote",
+            "title": "Quote",
+            "type": "`$STRING`",
             "req": True,
             "short": "The stoicism quote text",
-            "type": "`$STRING`",
           },
         ],
         "name": "stoic_quote",
@@ -134,7 +136,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/stoic-quote",
@@ -143,14 +144,16 @@ def make_config():
                     "lit": "stoic-quote",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "stoic-quote",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.data`",
                 },
-                "parts": [
-                  "stoic-quote",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },
