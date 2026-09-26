@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/stoicism-quote",
+  "name": "voxgig-sdk/stoicism-quote-sdk",
   "description": "Unofficial generated PHP SDK for the Stoicism Quote public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "stoicism-quote"],
