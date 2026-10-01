@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 StoicismQuoteUtility.registrar = ->(u) {
   u.clean = StoicismQuoteUtilities::Clean
+  u.clean_add = StoicismQuoteUtilities::CleanAdd
+  u.clean_explain = StoicismQuoteUtilities::CleanExplain
   u.done = StoicismQuoteUtilities::Done
   u.make_error = StoicismQuoteUtilities::MakeError
   u.feature_add = StoicismQuoteUtilities::FeatureAdd

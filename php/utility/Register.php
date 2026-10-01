@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 StoicismQuoteUtility::setRegistrar(function (StoicismQuoteUtility $u): void {
     $u->clean = [StoicismQuoteClean::class, 'call'];
+    $u->clean_add = [StoicismQuoteClean::class, 'add'];
+    $u->clean_explain = [StoicismQuoteDone::class, 'clean_explain'];
     $u->done = [StoicismQuoteDone::class, 'call'];
     $u->make_error = [StoicismQuoteMakeError::class, 'call'];
     $u->feature_add = [StoicismQuoteFeatureAdd::class, 'call'];
