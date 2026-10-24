@@ -54,6 +54,14 @@ const utility_1 = require("../../utility");
         const ent = testsdk.StoicQuote();
         (0, node_assert_1.default)(null != ent);
     });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.StoicismQuoteSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.StoicQuote().load({ "author": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.STOICISM_QUOTE_TEST_LIVE;
         for (const op of ['load']) {
@@ -62,7 +70,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "author": { "a": true, "h": "Author", "n": "author", "r": true, "sh": "The author of the stoicism quote", "t": "`$STRING`", "key$": "author", "index$": 0 }, "quote": { "a": true, "h": "Quote", "n": "quote", "r": true, "sh": "The stoicism quote text", "t": "`$STRING`", "key$": "quote", "index$": 1 } }, "name": "stoic_quote", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /stoic-quote", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "GET", "o": "/stoic-quote", "q": {}, "r": {}, "s": [{ "lit": "stoic-quote" }], "t": { "req": "`reqdata`", "res": "`body.data`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "stoic_quote", "name__orig": "stoic_quote", "Name": "StoicQuote", "name_": "stoic_quote", "name-": "stoic-quote", "NAME": "STOIC_QUOTE", "index$": 0 }, { "active": true, "entity": "stoic_quote", "key$": "BasicStoicQuoteFlow", "kind": "basic", "name": "BasicStoicQuoteFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "stoic_quote_ref01", "srcdatavar": "stoic_quote_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-stoic_quote_ref01" } }], "index$": 0 }] }, 'StoicQuote', { "GET /stoic-quote": { "protocol": "http", "parameters": [] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "author": { "a": true, "h": "Author", "n": "author", "r": true, "sh": "The author of the stoicism quote", "t": "`$STRING`", "key$": "author", "index$": 0 }, "quote": { "a": true, "h": "Quote", "n": "quote", "r": true, "sh": "The stoicism quote text", "t": "`$STRING`", "key$": "quote", "index$": 1 } }, "name": "stoic_quote", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /stoic-quote", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "GET", "o": "/stoic-quote", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "stoic-quote" }], "t": { "req": "`reqdata`", "res": "`body.data`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "stoic_quote", "name__orig": "stoic_quote", "Name": "StoicQuote", "name_": "stoic_quote", "name-": "stoic-quote", "NAME": "STOIC_QUOTE", "index$": 0 }, { "active": true, "entity": "stoic_quote", "key$": "BasicStoicQuoteFlow", "kind": "basic", "name": "BasicStoicQuoteFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "stoic_quote_ref01", "srcdatavar": "stoic_quote_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-stoic_quote_ref01" } }], "index$": 0 }] }, 'StoicQuote', { "GET /stoic-quote": { "protocol": "http", "parameters": [] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -76,6 +84,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(null != stoic_quote_ref01_data_dt0);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

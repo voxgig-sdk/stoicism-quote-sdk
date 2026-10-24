@@ -34,6 +34,10 @@ main: kit: entity: stoic_quote: {
           }
           m: "GET"
           o: "/stoic-quote"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "stoic-quote"

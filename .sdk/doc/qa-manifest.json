@@ -3,5 +3,14 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Production server",
+      "Successfully retrieved a stoicism quote",
+      "The author of the stoicism quote",
+      "The stoicism quote text",
+      "This API generates stoicism quotes to help you live a better life using Stoicism wisdom."
+    ]
+  }
 }
